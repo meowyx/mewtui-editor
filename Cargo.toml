@@ -1,5 +1,5 @@
 [package]
-name = "mewtui-editor"
+name = "mewtui"
 version = "0.1.0"
 edition = "2024"
 description = "A three-pane terminal code editor: shell, code editor, and file tree in one TUI"
@@ -8,11 +8,6 @@ repository = "https://github.com/meowyx/mewtui-editor"
 keywords = ["tui", "editor", "terminal", "code-editor"]
 categories = ["command-line-utilities", "text-editors"]
 readme = "README.md"
-
-
-[[bin]]
-name = "mewtui"
-path = "src/main.rs"
 
 [dependencies]
 ratatui = "0.29"
