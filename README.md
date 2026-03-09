@@ -190,7 +190,7 @@ cargo run
 5. Commit and **push** to your fork
 6. Open a **pull request** with a clear description of what you changed and why
 
-### Ideas for contributions
+### Ideas for contributions (come up with your own)
 
 - New syntax highlighting languages (tree-sitter grammars)
 - New themes
