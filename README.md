@@ -15,21 +15,13 @@ The shell is a real PTY. You can run `cargo build`, `git status`, or even `claud
 - **macOS or Linux** (PTY support required, Windows not yet supported)
 - A terminal emulator (iTerm2, Terminal.app, Alacritty, Kitty, etc.)
 
-### Quick start (run from source)
+### Install from crates.io
 
 ```bash
-git clone https://github.com/meowyx/mewtui-editor
-cd mewtui-editor
-cargo run
+cargo install mewtui
 ```
 
-### Install globally
-
-```bash
-cargo install --path .
-```
-
-This puts `mewtui` in `~/.cargo/bin/` (already in your PATH if you installed Rust via rustup). Then from any directory you can just run `mewtui` and it will open the mewtui editor:
+This puts `mewtui` in `~/.cargo/bin/` (already in your PATH if you installed Rust via rustup). Then from any directory:
 
 ```bash
 cd my-project
@@ -37,13 +29,6 @@ mewtui
 ```
 
 The file tree automatically roots to wherever you launch from.
-
-### Build an optimized binary
-
-```bash
-cargo build --release
-./target/release/mewtui
-```
 
 ## Keybindings
 
@@ -171,11 +156,11 @@ src/
 
 ### Key design decisions
 
-- **Rope data structure** (ropey) for the text buffer:efficient for large files and frequent edits
-- **VTE parser** for shell output:handles ANSI colors, cursor movement, screen clearing, 256-color and 24-bit RGB
-- **Tree-sitter** for syntax highlighting:incremental parsing, same quality as Neovim
-- **No async runtime**:uses threads + channels for PTY I/O, keeping the architecture simple
-- **Single AppState** as source of truth:every frame redraws from state
+- **Rope data structure** (ropey) for the text buffer. Efficient for large files and frequent edits
+- **VTE parser** for shell output. Handles ANSI colors, cursor movement, screen clearing, 256-color and 24-bit RGB
+- **Tree-sitter** for syntax highlighting. Incremental parsing, same quality as Neovim
+- **No async runtime.** Uses threads + channels for PTY I/O, keeping the architecture simple
+- **Single AppState** as source of truth. Every frame redraws from state
 
 ## If something goes wrong
 
@@ -187,6 +172,48 @@ src/
 | Terminal completely frozen | Close the terminal tab/window, open a new one |
 
 The app cannot damage your system. It just renders characters and manages a text buffer.
+
+## Contributing
+
+Contributions are welcome! Here's how to get started:
+
+```bash
+git clone https://github.com/meowyx/mewtui-editor
+cd mewtui-editor
+cargo run
+```
+
+1. **Fork** the repo and clone it locally
+2. Create a **feature branch** (`git checkout -b my-feature`)
+3. Make your changes and test them (`cargo run`)
+4. Make sure it builds clean (`cargo build --release`)
+5. Commit and **push** to your fork
+6. Open a **pull request** with a clear description of what you changed and why
+
+### Ideas for contributions
+
+- New syntax highlighting languages (tree-sitter grammars)
+- New themes
+- Search and replace (`Ctrl+F`)
+- Line numbers toggle
+- Tab / indent support
+- Mouse scroll support
+- Linux testing and fixes
+- Windows support (alternative to PTY)
+
+### Guidelines
+
+- Keep it simple. mewtui is meant to be lightweight and focused.
+- No external runtime dependencies (no tokio, no async).
+- Test your changes in at least one terminal emulator before opening a PR.
+- If you're adding a theme, follow the existing `Theme` struct format in `src/theme.rs`.
+
+### Reporting bugs
+
+Open an [issue](https://github.com/meowyx/mewtui-editor/issues) with:
+- What you expected to happen
+- What actually happened
+- Your OS, terminal emulator, and Rust version (`rustc --version`)
 
 ## License
 
