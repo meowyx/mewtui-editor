@@ -11,7 +11,7 @@ The shell is a real PTY — you can run `cargo build`, `git status`, or even `cl
 
 ### Prerequisites
 
-- **Rust** (1.85+) — install from [rustup.rs](https://rustup.rs)
+- **Rust** (1.85+) 
 - **macOS or Linux** — PTY support required (Windows not yet supported)
 - A terminal emulator (iTerm2, Terminal.app, Alacritty, Kitty, etc.)
 
@@ -29,7 +29,7 @@ cargo run
 cargo install --path .
 ```
 
-This puts `mewtui` in `~/.cargo/bin/` (already in your PATH if you installed Rust via rustup). Then from any directory:
+This puts `mewtui` in `~/.cargo/bin/` (already in your PATH if you installed Rust via rustup). Then from any directory you can just run `mewtui` and it will open the mewtui editor:
 
 ```bash
 cd my-project
