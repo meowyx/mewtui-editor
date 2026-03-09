@@ -5,14 +5,14 @@ A three-pane terminal code editor built in Rust. Shell on the left, code editor 
 
 ![Three-pane editor layout: shell, code editor, file tree](mewtui-demo.gif)
 
-The shell is a real PTY — you can run `cargo build`, `git status`, or even `claude` inside it while your code and project files stay visible.
+The shell is a real PTY. You can run `cargo build`, `git status`, or even `claude` inside it while your code and project files stay visible.
 
 ## Install
 
 ### Prerequisites
 
 - **Rust** (1.85+) 
-- **macOS or Linux** — PTY support required (Windows not yet supported)
+- **macOS or Linux** (PTY support required, Windows not yet supported)
 - A terminal emulator (iTerm2, Terminal.app, Alacritty, Kitty, etc.)
 
 ### Quick start (run from source)
@@ -68,7 +68,7 @@ When the shell is focused, all keys go directly to the PTY except the global bin
 | Arrow keys | Shell history / cursor movement |
 | Any typing | Goes to shell |
 
-The shell is a real terminal. Run anything — `cargo`, `git`, `npm`, `python`, `claude`.
+The shell is a real terminal. Run anything: `cargo`, `git`, `npm`, `python`, `claude`.
 
 ### Editor pane
 
@@ -85,14 +85,14 @@ The shell is a real terminal. Run anything — `cargo`, `git`, `npm`, `python`, 
 
 | Key | Action |
 |---|---|
-| `Ctrl+A` | Toggle mark — drop anchor at cursor, or clear it |
+| `Ctrl+A` | Toggle mark: drop anchor at cursor, or clear it |
 | Arrow keys | Move cursor to extend selection (shown as inverted colors) |
 | `Ctrl+C` | Copy selection to system clipboard |
 | `Ctrl+X` | Cut selection (copy + delete) |
 | `Ctrl+V` | Paste from system clipboard |
 | `Esc` | Clear selection |
 
-Copied text goes to the system clipboard — paste anywhere on your Mac with `Cmd+V`.
+Copied text goes to the system clipboard. Paste anywhere on your Mac with `Cmd+V`.
 
 ### File tree pane
 
@@ -157,7 +157,7 @@ src/
 ├── main.rs               # Entry point, event loop, terminal setup
 ├── app.rs                # App state, focus management, key dispatch
 ├── ui.rs                 # Ratatui rendering, three-pane layout
-├── theme.rs              # 14 theme definitions
+├── theme.rs              # 20 theme definitions
 ├── editor/
 │   ├── mod.rs
 │   ├── buffer.rs         # Rope-backed text buffer, cursor, selection
@@ -171,11 +171,11 @@ src/
 
 ### Key design decisions
 
-- **Rope data structure** (ropey) for the text buffer — efficient for large files and frequent edits
-- **VTE parser** for shell output — handles ANSI colors, cursor movement, screen clearing, 256-color and 24-bit RGB
-- **Tree-sitter** for syntax highlighting — incremental parsing, same quality as Neovim
-- **No async runtime** — uses threads + channels for PTY I/O, keeping the architecture simple
-- **Single AppState** as source of truth — every frame redraws from state
+- **Rope data structure** (ropey) for the text buffer:efficient for large files and frequent edits
+- **VTE parser** for shell output:handles ANSI colors, cursor movement, screen clearing, 256-color and 24-bit RGB
+- **Tree-sitter** for syntax highlighting:incremental parsing, same quality as Neovim
+- **No async runtime**:uses threads + channels for PTY I/O, keeping the architecture simple
+- **Single AppState** as source of truth:every frame redraws from state
 
 ## If something goes wrong
 

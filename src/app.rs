@@ -268,7 +268,7 @@ impl App {
                 (KeyModifiers::CONTROL, KeyCode::Char('a')) => {
                     self.buffer.toggle_mark();
                     if self.buffer.anchor.is_some() {
-                        self.status_msg = Some("Mark set — move cursor to select".to_string());
+                        self.status_msg = Some("Mark set. Move cursor to select.".to_string());
                     } else {
                         self.status_msg = Some("Mark cleared".to_string());
                     }
