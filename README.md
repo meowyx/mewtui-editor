@@ -3,7 +3,7 @@
 A three-pane terminal code editor built in Rust. Shell on the left, code editor in the middle, file tree on the right. Runs inside your existing terminal.
 
 
-![Three-pane editor layout: shell, code editor, file tree](mewtui-demo.gif)
+![Three-pane editor layout: shell, code editor, file tree](https://raw.githubusercontent.com/meowyx/mewtui-editor/main/image.png)
 
 The shell is a real PTY. You can run `cargo build`, `git status`, or even `claude` inside it while your code and project files stay visible.
 
