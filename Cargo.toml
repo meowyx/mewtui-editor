@@ -1,0 +1,30 @@
+[package]
+name = "mewtui-editor"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "mewtui"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"
+ropey = "1.6"
+
+# Syntax highlighting
+tree-sitter = "0.26"
+tree-sitter-highlight = "0.26"
+tree-sitter-rust = "0.24"
+tree-sitter-javascript = "0.25"
+tree-sitter-python = "0.25"
+tree-sitter-json = "0.24"
+tree-sitter-toml-ng = "0.7"
+tree-sitter-go = "0.25"
+
+# Clipboard
+arboard = "3"
+
+# Shell PTY
+portable-pty = "0.9"
+vte = "0.15"
